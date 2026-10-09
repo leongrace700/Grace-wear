@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grace — Catálogo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="logo">grace</div></header>
+<nav class="menu" aria-label="Principal"><button data-v="inicio">Inicio</button><button data-v="tienda">Tienda</button><button data-v="camisetas">Camisetas</button><button data-v="abrigos">Abrigos</button><button data-v="accesorios">Accesorios</button></nav>
+
+<div id="home">
+<div class="hero">
+  <img class="hero-img" src="images/hero.jpg" alt="Grace, gracia en tu estilo">
+  <div class="hero-body">
+  <p>Elige tus referencias, la talla y envíanos tu pedido por WhatsApp. Nosotros te confirmamos disponibilidad y entrega.</p>
+  <a class="cta" href="#" data-v="tienda">Ver referencias</a>
+  </div>
+</div>
+
+<section id="destacados"><h2>Destacados</h2><p class="sub">Las referencias que más piden nuestros clientes.</p><video class="dvid" src="video/destacados.mp4" poster="images/poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Referencias destacadas de Grace"></video></section>
+</div>
+<section id="catalogo" hidden><h2 id="ctitle">Tienda</h2><p class="sub" id="csub"></p><div class="grid" id="all"></div></section>
+<footer id="contacto">Grace · Pedidos por WhatsApp</footer>
+
+<button class="bar" id="bar" aria-label="Abrir mi pedido"><span id="barN"></span><span id="barT"></span></button>
+<div class="shade" id="shade"></div>
+<aside id="drawer" aria-label="Mi pedido" aria-hidden="true">
+  <div class="dh"><h2>Mi pedido</h2><button class="x" id="close" aria-label="Cerrar">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="df"><a class="wa" id="wa" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a></div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
