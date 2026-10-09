@@ -29,10 +29,12 @@ article{display:flex;flex-direction:column}article .name{min-height:2.7em;line-h
 .add{width:100%;padding:11px;border:1px solid var(--ink);background:transparent;border-radius:6px;font-weight:500}
 .add:hover{background:var(--accent);color:var(--onAccent)}
 .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 5vw calc(12px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--onAccent);display:none;justify-content:space-between;align-items:center;border:0;width:100%;font-weight:500;z-index:5}
-.bar.on{display:flex;overflow:hidden;animation:glow 2.4s ease-in-out infinite}
-.bar.on::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;pointer-events:none}
-@keyframes glow{0%,100%{box-shadow:0 0 6px rgba(255,255,255,.25),inset 0 0 8px rgba(255,255,255,.12)}50%{box-shadow:0 0 24px rgba(255,255,255,.85),inset 0 0 18px rgba(255,255,255,.35)}}
-@keyframes shine{0%{left:-40%}60%,100%{left:120%}}
+.bar.on{display:flex;overflow:hidden;animation:glow 2.2s ease-in-out infinite}
+.bar.on::after{content:"";position:absolute;top:0;bottom:0;left:-50%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+.bar.on #barT{padding:9px 22px;border:1px solid currentColor;border-radius:999px;animation:pill 1.8s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.45)}}
+@keyframes shine{0%{left:-50%}70%,100%{left:130%}}
+@keyframes pill{0%,100%{box-shadow:0 0 4px rgba(255,255,255,.3);text-shadow:none}50%{box-shadow:0 0 22px 4px rgba(255,255,255,.9),inset 0 0 14px rgba(255,255,255,.4);text-shadow:0 0 10px #fff}}
 .shade{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:6}
 .shade.on{display:block}
 aside{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:7;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s;padding-top:env(safe-area-inset-top,0px)}
@@ -51,4 +53,19 @@ aside.on{transform:none}
 .empty{color:var(--mute);padding:28px 0}
 footer{padding:40px 5vw 90px;color:var(--mute);border-top:1px solid var(--line);font-size:.9rem}
 @media (max-width:560px){.grid{grid-template-columns:repeat(2,1fr);gap:40px 14px}.sizes button{min-width:34px;height:34px}}
-@media (prefers-reduced-motion:reduce){.bar.on,.bar.on::after{animation:none}aside{transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.bar.on,.bar.on::after,.bar.on #barT{animation:none}aside{transition:none}html{scroll-behavior:auto}}
+
+[data-open]{cursor:pointer}
+.dots,.mdots{display:flex;gap:8px;margin:0 0 12px}
+.sw{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);padding:0;cursor:pointer}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink)}
+#modal{position:fixed;inset:0;z-index:9;display:none;background:rgba(0,0,0,.55);padding:20px;overflow:auto}
+#modal.on{display:flex}
+.mbox{position:relative;margin:auto;background:var(--bg);border-radius:10px;width:100%;max-width:880px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.mimg{background:var(--card)}.mimg img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.minfo{padding:34px 30px;display:flex;flex-direction:column}
+.minfo h3{font:600 1.9rem/1.1 "Cormorant Garamond",Georgia,serif;margin:0 0 4px}
+.mlabel{color:var(--mute);font-size:.85rem;margin:14px 0 6px}.mlabel b{color:var(--ink);font-weight:500}
+.minfo .sizes{margin:0 0 22px}.minfo .add{margin-top:auto}
+.mclose{position:absolute;top:8px;right:12px;z-index:1;width:36px;height:36px;border:0;border-radius:50%;background:var(--bg);font-size:1.6rem;line-height:1}
+@media (max-width:640px){.mbox{grid-template-columns:1fr}.mimg img{aspect-ratio:1/1}.minfo{padding:22px 20px}}
