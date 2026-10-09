@@ -39,9 +39,9 @@ const IMGS = {
  "GR-033": "images/GR-033.jpg",
  "GR-034": "images/GR-034.jpg",
  "GR-035": "images/GR-035.jpg",
- "GR-035": "images/GR-0036.jpg",
- "GR-035": "images/GR-0037.jpg",
- "GR-035": "images/GR-0038.jpg"
+ "GR-036": "images/GR-0036.jpg",
+ "GR-037": "images/GR-0037.jpg",
+ "GR-038": "images/GR-0038.jpg"
  
 };
 // =========================
