@@ -15,16 +15,17 @@ header{display:flex;align-items:center;justify-content:center;padding:20px 5vw}
 
 .hero p{margin:0;max-width:44ch;color:#b9b4ac}
 .cta{background:var(--onDark);color:var(--dark);border:0;padding:14px 28px;border-radius:999px;font-weight:500;text-decoration:none;display:inline-block}
-section{padding:56px 5vw}
+section{padding:64px 5vw;max-width:1280px;margin:0 auto}
 h2{font-size:2rem;margin-bottom:6px}
 .sub{color:var(--mute);margin:0 0 28px}
-.grid{display:grid;gap:28px 20px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.grid{display:grid;gap:52px 32px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
 .feat{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.img{overflow:hidden;aspect-ratio:3/4;background:var(--card);border-radius:4px;display:grid;place-items:center;color:var(--mute);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;margin-bottom:12px}
+.img{overflow:hidden;aspect-ratio:3/4;background:var(--card);border-radius:4px;display:grid;place-items:center;color:var(--mute);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;margin-bottom:16px}
 .name{font-weight:500}.ref{color:var(--mute);font-size:.85rem;margin-bottom:10px}.img img{width:100%;height:100%;object-fit:cover;display:block}
-.sizes{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.sizes{display:flex;gap:6px;flex-wrap:wrap;margin:auto 0 14px}
 .sizes button{min-width:40px;height:36px;border:1px solid var(--line);background:transparent;border-radius:6px}
 .sizes button[aria-pressed="true"]{background:var(--accent);color:var(--onAccent);border-color:var(--accent)}
+article{display:flex;flex-direction:column}article .name{min-height:2.7em;line-height:1.35}.unica{height:36px;display:flex;align-items:center;color:var(--mute);font-size:.9rem}
 .add{width:100%;padding:11px;border:1px solid var(--ink);background:transparent;border-radius:6px;font-weight:500}
 .add:hover{background:var(--accent);color:var(--onAccent)}
 .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 5vw calc(12px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--onAccent);display:none;justify-content:space-between;align-items:center;border:0;width:100%;font-weight:500;z-index:5}
@@ -46,4 +47,5 @@ aside.on{transform:none}
 .wa{display:block;text-align:center;background:#1f8f4e;color:#fff;padding:14px;border-radius:999px;text-decoration:none;font-weight:500}
 .empty{color:var(--mute);padding:28px 0}
 footer{padding:40px 5vw 90px;color:var(--mute);border-top:1px solid var(--line);font-size:.9rem}
+@media (max-width:560px){.grid{grid-template-columns:repeat(2,1fr);gap:40px 14px}.sizes button{min-width:34px;height:34px}}
 @media (prefers-reduced-motion:reduce){aside{transition:none}html{scroll-behavior:auto}}
