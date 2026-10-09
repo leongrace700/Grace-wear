@@ -29,7 +29,10 @@ article{display:flex;flex-direction:column}article .name{min-height:2.7em;line-h
 .add{width:100%;padding:11px;border:1px solid var(--ink);background:transparent;border-radius:6px;font-weight:500}
 .add:hover{background:var(--accent);color:var(--onAccent)}
 .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 5vw calc(12px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--onAccent);display:none;justify-content:space-between;align-items:center;border:0;width:100%;font-weight:500;z-index:5}
-.bar.on{display:flex}
+.bar.on{display:flex;overflow:hidden;animation:glow 2.4s ease-in-out infinite}
+.bar.on::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;pointer-events:none}
+@keyframes glow{0%,100%{box-shadow:0 0 6px rgba(255,255,255,.25),inset 0 0 8px rgba(255,255,255,.12)}50%{box-shadow:0 0 24px rgba(255,255,255,.85),inset 0 0 18px rgba(255,255,255,.35)}}
+@keyframes shine{0%{left:-40%}60%,100%{left:120%}}
 .shade{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:6}
 .shade.on{display:block}
 aside{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:7;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s;padding-top:env(safe-area-inset-top,0px)}
@@ -48,4 +51,4 @@ aside.on{transform:none}
 .empty{color:var(--mute);padding:28px 0}
 footer{padding:40px 5vw 90px;color:var(--mute);border-top:1px solid var(--line);font-size:.9rem}
 @media (max-width:560px){.grid{grid-template-columns:repeat(2,1fr);gap:40px 14px}.sizes button{min-width:34px;height:34px}}
-@media (prefers-reduced-motion:reduce){aside{transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.bar.on,.bar.on::after{animation:none}aside{transition:none}html{scroll-behavior:auto}}
